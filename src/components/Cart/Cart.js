@@ -6,10 +6,13 @@ import { useSelector } from "react-redux";
 const Cart = () => {
 	const cartItems = useSelector((state) => state.cart);
 
-	console.log(cartItems);
 	return (
 		<Card className={classes.cart}>
-			<h2>Your Shopping Cart</h2>
+			<header>
+				<h2>Your Shopping Cart</h2>
+				<h3>${cartItems.grandTotal.toFixed(2)}</h3>
+			</header>
+
 			{!cartItems.totalQuantity && <p>Your cart is super empty!! ☹︎</p>}
 			{cartItems.totalQuantity && (
 				<ul>
